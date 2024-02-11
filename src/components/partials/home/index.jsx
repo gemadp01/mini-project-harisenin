@@ -13,7 +13,7 @@ const Home = () => {
           </div>
           <div className="sub-headline">
             <div>
-              <Image src="/img/4.png" alt="Sample" width={336} height={449} />
+              <Image src="/img/4.png" alt="Sample" width={336} height={449} style={{ maxWidth: '100%', height: 'auto' }} />
             </div>
           </div>
         </div>

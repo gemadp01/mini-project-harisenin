@@ -1,0 +1,44 @@
+.header-dark div,
+.header-light div {
+  max-width: 576px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.header-dark div h4,
+.header-light div h4 {
+  color: #ef4444;
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.header-dark div h2 {
+  color: white;
+}
+
+.header-light div h2 {
+  color: #000;
+}
+
+.header-dark div h2,
+.header-light div h2 {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.header-dark div p {
+  color: #64748b;
+}
+
+.header-light div p {
+  color: #3a4052;
+}
+
+.header-dark div p,
+.header-light div p {
+  margin-bottom: 16px;
+}

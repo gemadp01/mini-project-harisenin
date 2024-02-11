@@ -1,9 +1,11 @@
 @import 'reset.css';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;700;900&display=swap');
 
-* {
-  margin: 0;
-  padding: 0;
+:root {
+  --primary-color: #ef4444;
+  --secondary-color: #2f2c3d;
+  --text-dark: #3a4052;
+  --text-light: #64748b;
 }
 
 body {
@@ -14,6 +16,7 @@ body {
   padding-top: 144px;
 }
 
+/* Styling container */
 #home .container,
 #services .container,
 header .container,
@@ -24,7 +27,9 @@ footer .container {
   padding: 0 16px;
   box-sizing: border-box;
 }
+/* End */
 
+/* Styling home section */
 #home .sub-container {
   display: flex;
   flex-wrap: wrap;
@@ -78,48 +83,23 @@ footer .container {
   display: block;
   margin: 0 auto;
 }
+/* End */
 
+/* Padding top n bottom section (without home) */
 #services,
+#gallery,
 #contact {
   padding-top: 144px;
   padding-bottom: 64px;
 }
+/* End */
 
+/* Styling services section*/
 #services .container .service-header,
 #services .container .service-items {
   width: 100%;
   padding: 0 16px;
   box-sizing: border-box;
-}
-
-#services .service-header div,
-#contact .contact-header div {
-  max-width: 576px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-#services .service-header div h4,
-#contact .contact-header div h4 {
-  color: #ef4444;
-  font-size: 18px;
-  line-height: 28px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-#services .service-header div h2,
-#contact .contact-header div h2 {
-  color: #000;
-  font-size: 30px;
-  line-height: 36px;
-  font-weight: bold;
-  margin-bottom: 16px;
-}
-
-#services .service-header div p,
-#contact .contact-header div p {
-  margin-bottom: 16px;
 }
 
 #services .service-items {
@@ -129,36 +109,55 @@ footer .container {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 40px;
 }
+/* End styling services section */
 
-#services .service-items .service-detail {
-  background-color: white;
-  padding: 15px;
-  text-align: center;
-  border: 1px solid #aaa;
-  border-radius: 3px;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+/* Styling Gallery section */
+#gallery {
+  background-color: var(--secondary-color);
 }
 
-#services .service-items .service-detail h3 {
-  font-size: 1.5em;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-#services .service-items .service-detail p {
-  font-weight: 400;
-  font-size: 0.8em;
-}
-
-/* Gallery */
-.gallery {
+#gallery .gallery-items {
+  max-width: 1280px;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 5px;
+  justify-items: center;
+  gap: 15px 0px;
 }
 
+#gallery .gallery-item {
+  width: 150px;
+  height: 200px;
+  background: transparent;
+  border-radius: 8px;
+  box-shadow: 0px 0px 4px 2px rgba(255, 255, 255, 0.43);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+#gallery .gallery-item:hover {
+  transform: scale(0.95);
+}
+
+#gallery .gallery-item img {
+  background-size: cover;
+  background-position: center;
+  transition: all 0.3s ease;
+}
+
+#gallery .gallery-item img:hover {
+  transform: scale(1.25) rotate(7deg);
+}
+/* End */
+
+/* Styling Contact Styling */
 #contact .container .contact-detail-item {
   width: 100%;
+}
+
+#contact iframe {
+  display: inline-block;
+  max-width: 100%;
 }
 
 #contact .container .input-group {
@@ -198,7 +197,9 @@ footer .container {
   border-radius: 50px;
   border: none;
 }
+/* End */
 
+/* Styling Header */
 header {
   background-color: transparent;
   position: fixed;
@@ -245,6 +246,7 @@ header .container nav ul li a {
 header .container nav ul li a:hover {
   color: #ef4444;
 }
+/* En */
 
 /* Breakpoints */
 @media screen and (min-width: 768px) {
@@ -261,9 +263,8 @@ header .container nav ul li a:hover {
     width: 50%;
   }
 
-  #contact .container .contact-detail-item {
-    width: 60%;
-    margin: 0 auto;
+  #contact .contact-detail .contact-map {
+    text-align: center;
   }
 
   header .container nav ul {
@@ -278,11 +279,21 @@ header .container nav ul li a:hover {
   header .container,
   #contact .container,
   footer .container {
-    max-width: 1280px;
+    max-width: 1024px;
   }
 
   #home .sub-headline div {
     position: relative;
     right: 0;
+  }
+
+  #contact .container .contact-detail {
+    width: 100%;
+    display: flex;
+  }
+
+  #contact .contact-detail .contact-form,
+  #contact .contact-detail .contact-map {
+    width: 50%;
   }
 }

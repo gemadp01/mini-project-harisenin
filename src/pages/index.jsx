@@ -1,10 +1,10 @@
 import Head from 'next/head';
-import Home from '@/partials/home';
-import Services from '@/partials/services';
-import Contact from '@/partials/contact';
-import Footer from '@/partials/footer';
-import Header from '@/partials/header';
-import Gallery from '@/partials/gallery';
+import Home from '@/components/partials/home';
+import Services from '@/components/partials/services';
+import Contact from '@/components/partials/contact';
+import Footer from '@/components/partials/footer';
+import Header from '@/components/partials/header';
+import Gallery from '@/components/partials/gallery';
 
 export default function LandingPage() {
   return (
