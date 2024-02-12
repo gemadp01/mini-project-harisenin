@@ -1,4 +1,4 @@
-import Card from '@/components/Services/Card';
+import Card from '@/components/services/Card';
 import HeaderTitleSection from '@/components/header-title-section';
 
 const Services = () => {
