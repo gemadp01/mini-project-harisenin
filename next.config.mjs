@@ -2,7 +2,14 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['nekos.best'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'nekos.best',
+        port: '',
+        pathname: '/api/v2/neko/**',
+      },
+    ],
   },
 };
 
