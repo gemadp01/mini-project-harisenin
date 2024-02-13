@@ -5,8 +5,46 @@ import Services from '@/components/partials/services';
 import Gallery from '@/components/partials/gallery';
 import Contact from '@/components/partials/contact';
 import Footer from '@/components/partials/footer';
+import Loading from '@/components/loading';
+import { useEffect, useState } from 'react';
 
 export default function LandingPage() {
+  const [gallery, setGallery] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const startTime = performance.now();
+        console.log(startTime);
+        for (let i = 0; i < 5; i++) {
+          const response = await fetch('https://nekos.best/api/v2/neko');
+          if (!response.ok) {
+            throw new Error(`HTTP Error! status:: ${response.status}`);
+          }
+          const result = await response.json();
+          const endTime = performance.now();
+          console.log(endTime);
+          const duration = endTime - startTime;
+
+          const minLoadingTime = 500;
+          const remainingTime = minLoadingTime - duration;
+          const loadingTime = remainingTime > 0 ? remainingTime : 0;
+
+          console.log(remainingTime);
+
+          setTimeout(() => setLoading(false), loadingTime);
+          setGallery((prevGallery) => [...prevGallery, result.results[0]]);
+        }
+      } catch (error) {
+        console.error('An error occurred while fetching the data: ', error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <Head>
@@ -14,12 +52,18 @@ export default function LandingPage() {
         <meta name="description" content="Aplikasi Rental Costume" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Header />
-      <Home />
-      <Services />
-      <Gallery />
-      <Contact />
-      <Footer />
+      {loading ? (
+        <Loading />
+      ) : (
+        <>
+          <Header />
+          <Home />
+          <Services />
+          <Gallery data={gallery} />
+          <Contact />
+          <Footer />
+        </>
+      )}
     </>
   );
 }
