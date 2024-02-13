@@ -1,0 +1,128 @@
+.background {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-color: #64748b;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.6); */
+  background: transparent;
+}
+
+.loading > div {
+  width: 40px;
+  height: 40px;
+  /* background-color: aquamarine; */
+  /* transform: rotate(30deg); */
+
+  position: relative;
+}
+
+.loading div > span:nth-child(1) {
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+  background-color: #ef4444;
+  position: absolute;
+  animation: loadingSpanSatu 0.5s ease-in-out infinite alternate-reverse;
+}
+
+.loading div > span:nth-child(2) {
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+  background-color: #ef4444;
+  position: absolute;
+  top: 25px;
+  left: -5px;
+  transform: rotate(90deg);
+  animation: loadingSpanDua 0.5s ease-in-out infinite alternate-reverse;
+}
+
+.loading div > span:nth-child(3) {
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+  background-color: #ef4444;
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  transform: rotate(0deg);
+  animation: loadingSpanTiga 0.5s ease-in-out infinite alternate-reverse;
+}
+
+.loading div > span:nth-child(4) {
+  display: inline-block;
+  width: 20px;
+  height: 10px;
+  background-color: #ef4444;
+  position: absolute;
+  top: 5px;
+  left: 25px;
+  transform: rotate(-90deg);
+  animation: loadingSpanEmpat 0.5s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes loadingSpanSatu {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 10px;
+  }
+
+  100% {
+    left: 20px;
+  }
+}
+
+@keyframes loadingSpanDua {
+  0% {
+    top: 26px;
+  }
+  50% {
+    top: 15px;
+  }
+
+  100% {
+    top: 5px;
+  }
+}
+
+@keyframes loadingSpanTiga {
+  0% {
+    left: 20px;
+  }
+  50% {
+    left: 10px;
+  }
+
+  100% {
+    left: 0px;
+  }
+}
+
+@keyframes loadingSpanEmpat {
+  0% {
+    top: 5px;
+  }
+  50% {
+    top: 15px;
+  }
+
+  100% {
+    top: 25px;
+  }
+}

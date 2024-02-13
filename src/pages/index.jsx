@@ -16,7 +16,6 @@ export default function LandingPage() {
     const fetchData = async () => {
       try {
         const startTime = performance.now();
-        console.log(startTime);
         for (let i = 0; i < 5; i++) {
           const response = await fetch('https://nekos.best/api/v2/neko');
           if (!response.ok) {
@@ -24,14 +23,11 @@ export default function LandingPage() {
           }
           const result = await response.json();
           const endTime = performance.now();
-          console.log(endTime);
           const duration = endTime - startTime;
 
           const minLoadingTime = 500;
           const remainingTime = minLoadingTime - duration;
           const loadingTime = remainingTime > 0 ? remainingTime : 0;
-
-          console.log(remainingTime);
 
           setTimeout(() => setLoading(false), loadingTime);
           setGallery((prevGallery) => [...prevGallery, result.results[0]]);
