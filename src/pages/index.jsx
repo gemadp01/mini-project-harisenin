@@ -7,6 +7,7 @@ import Contact from '@/components/partials/contact';
 import Footer from '@/components/partials/footer';
 import Loading from '@/components/loading';
 import { useEffect, useState } from 'react';
+import Script from 'next/script';
 
 export default function LandingPage() {
   const [gallery, setGallery] = useState([]);
@@ -58,6 +59,7 @@ export default function LandingPage() {
           <Gallery data={gallery} />
           <Contact />
           <Footer />
+          <Script src="js/navBar.js" />
         </>
       )}
     </>
