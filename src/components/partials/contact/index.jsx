@@ -1,34 +1,110 @@
 import HeaderTitleSection from '@/components/header-title-section';
+import LoadingButton from '@/components/loading-button';
+import { useEffect, useRef } from 'react';
+import Swal from 'sweetalert2';
 
 const Contact = () => {
+  const formInputContactRef = useRef(null);
+  useEffect(() => {
+    const inputElement = formInputContactRef.current.querySelector('#no_telepon');
+
+    inputElement.addEventListener('input', function (event) {
+      // Hapus border merah saat ada input
+      inputElement.style.border = '';
+    });
+
+    inputElement.addEventListener('keydown', function (event) {
+      var key = event.key;
+
+      if (event.ctrlKey) {
+        if (key === 'a') {
+          inputElement.style.border = '';
+          // Izinkan pemilihan teks
+        }
+
+        return;
+      }
+
+      if (!isNaN(key) || key === 'Backspace' || key === 'ArrowLeft' || key === 'ArrowRight' || key === 'Delete') {
+        inputElement.style.border = '';
+      } else {
+        inputElement.addEventListener('select', function () {
+          inputElement.style.border = '';
+        });
+        event.preventDefault();
+        inputElement.style.border = '1px solid red';
+      }
+    });
+
+    inputElement.addEventListener('select', function (event) {
+      // Hapus border merah saat teks dipilih
+      inputElement.style.border = '';
+    });
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxf3ToI9dja2ZNCnkM5Dc3XRePzfh6xYptSlN8PcbhfHW_zRQLgmXjLctEg6NVsIG_P/exec';
+    const form = document.forms['rencos-contact-form'];
+    const btnLoading = document.querySelector('.btn-loading');
+    const btnKirim = document.querySelector('.btn-kirim');
+    btnKirim.style.display = 'none';
+    btnLoading.style.display = 'block';
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+      .then(() => {
+        btnKirim.style.display = 'block';
+        btnLoading.style.display = 'none';
+        form.reset();
+        Swal.fire({
+          title: 'Terima kasih!',
+          text: 'Pesan anda sudah kami terima.',
+          icon: 'success',
+          showCloseButton: true,
+        });
+      })
+      .catch((error) => {
+        Swal.fire({
+          title: 'Gagal!',
+          text: 'Pesan anda gagal kami terima.' + error,
+          icon: 'error',
+          showCloseButton: true,
+        });
+      });
+  };
+
   return (
     <>
       <section id="contact">
         <div className="container">
-          <HeaderTitleSection
-            className="header-light"
-            title="Contact"
-            subTitle="Hubungi Kami"
-            description="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis fugiat est mollitia odio eligendi, unde sequi culpa. Repellat, delectus atque."
-          />
+          <HeaderTitleSection className="header-light" title="Contact" subTitle="Hubungi Kami" description="Untuk pertanyaan lebih lanjut atau bantuan, silakan hubungi kami." />
           <div className="contact-detail">
             <div className="contact-form">
-              <form action="">
+              <form ref={formInputContactRef} action="" name="rencos-contact-form" onSubmit={handleSubmit}>
                 <div className="contact-detail-item">
                   <div className="input-group">
-                    <label htmlFor="name">Nama</label>
-                    <input type="text" id="name" />
+                    <label htmlFor="nama">Nama</label>
+                    <input type="text" id="nama" name="nama" maxLength={50} required />
                   </div>
                   <div className="input-group">
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" />
+                    <input type="email" id="email" name="email" maxLength={50} />
                   </div>
                   <div className="input-group">
-                    <label htmlFor="message">Pesan</label>
-                    <textarea type="text" id="message" defaultValue={''} />
+                    <label htmlFor="no_telepon">No. Telepon</label>
+                    <input type="text" id="no_telepon" name="no_telepon" required maxLength={13} />
                   </div>
                   <div className="input-group">
-                    <button type="submit">Kirim</button>
+                    <label htmlFor="pesan">Pesan</label>
+                    <textarea type="text" id="pesan" name="pesan" defaultValue={''} rows={7} maxLength={255} required />
+                  </div>
+                  <div className="input-group">
+                    <button className="btn-loading" type="submit" style={{ display: 'none' }}>
+                      <LoadingButton />
+                    </button>
+                    <button className="btn-kirim" type="submit" style={{ cursor: 'pointer' }}>
+                      Kirim
+                    </button>
                   </div>
                 </div>
               </form>
