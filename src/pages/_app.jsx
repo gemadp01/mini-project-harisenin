@@ -10,10 +10,10 @@ const inter = Inter({
 });
 
 export default function App({ Component, pageProps }) {
-  // <style jsx global>{`
-  //   body {
-  //     font-family: ${inter.style.fontFamily};
-  //   }
-  // `}</style>;
+  <style jsx global>{`
+    body {
+      font-family: ${inter.style.fontFamily};
+    }
+  `}</style>;
   return <Component {...pageProps} />;
 }

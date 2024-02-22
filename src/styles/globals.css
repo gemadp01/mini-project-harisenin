@@ -7,8 +7,13 @@
   --text-light: #64748b;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Inter', sans-serif;
+  background-image: url('/public/img/pngwing.com.png');
 }
 
 #home {
@@ -244,6 +249,58 @@ header .container nav ul li a:hover {
 
 /* End */
 
+/* Styling Footer */
+footer {
+  background-color: #0f172a;
+  padding: 24px 0;
+}
+
+footer .container {
+  width: 100%;
+}
+
+footer .container .content-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+footer .container .content-footer div {
+  padding: 10px 0;
+}
+
+footer .content-footer div:nth-child(1) {
+  width: 100%;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+footer .content-footer div:nth-child(2),
+footer .content-footer div:nth-child(3) {
+  width: 50%;
+}
+
+footer .content-footer div:nth-child(2) a,
+footer .content-footer div:nth-child(3) a {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.8;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+footer .content-footer div:nth-child(2) a:hover,
+footer .content-footer div:nth-child(3) a:hover {
+  color: white;
+}
+
+footer .container .copyright {
+  border-top: 1px solid #64748b;
+}
+
+/* End */
+
 /* Breakpoints */
 @media (max-width: 767px) {
   /* Menu Toggle */
@@ -357,6 +414,10 @@ header .container nav ul li a:hover {
   header .container nav ul {
     display: flex;
     column-gap: 60px;
+  }
+
+  footer .container .content-footer {
+    flex-wrap: nowrap;
   }
 }
 

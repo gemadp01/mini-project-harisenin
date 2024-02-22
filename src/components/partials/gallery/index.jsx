@@ -41,7 +41,7 @@ const Gallery = () => {
             className="header-dark"
             title="Gallery"
             subTitle="Berikut referensi costume."
-            description="Lihatlah galeri kami di bawah ini untuk melihat koleksi lengkap kami."
+            // description="Lihatlah galeri kami di bawah ini untuk melihat koleksi lengkap kami."
           />
           <div className="gallery-items">
             {gallery.map((item) => (
