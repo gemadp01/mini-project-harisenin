@@ -42,7 +42,7 @@ const Footer = () => {
         </div>
 
         <div className="copyright" style={{ paddingTop: '14px' }}>
-          <p
+          {/* <p
             style={{
               textAlign: 'center',
               color: '#64748b',
@@ -53,7 +53,7 @@ const Footer = () => {
           >
             Created with ❤️ by
             <span style={{ color: '#ef4444', fontWeight: 600 }}> Gema Dodi Pranata</span>
-          </p>
+          </p> */}
           <p
             style={{
               textAlign: 'center',

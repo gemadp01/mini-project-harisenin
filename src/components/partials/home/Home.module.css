@@ -1,0 +1,21 @@
+.btn-contact {
+  position: relative;
+}
+
+.btn-contact img {
+  content: '';
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  animation: arrowAnimation 0.9s ease-in-out infinite alternate-reverse both;
+}
+
+@keyframes arrowAnimation {
+  0% {
+    right: 20px;
+  }
+
+  100% {
+    right: 16px;
+  }
+}

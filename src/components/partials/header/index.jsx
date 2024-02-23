@@ -3,7 +3,7 @@ const Header = () => {
     <header>
       <div className="container">
         <div>
-          <a href="#">Rnt Costume</a>
+          <a href="#">Rencos</a>
         </div>
         <nav id="nav-menu">
           <div className="menu-toggle">

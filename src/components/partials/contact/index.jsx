@@ -79,7 +79,7 @@ const Contact = () => {
         <div className="container">
           <HeaderTitleSection className="header-light" title="Contact" subTitle="Hubungi Kami" description="Untuk pertanyaan lebih lanjut atau bantuan, silakan hubungi kami." />
           <div className="contact-detail">
-            <div className="contact-form">
+            <div className="contact-form" data-aos="fade-right" data-aos-duration="1000" data-aos-offset="600">
               <form ref={formInputContactRef} action="" name="rencos-contact-form" onSubmit={handleSubmit}>
                 <div className="contact-detail-item">
                   <div className="input-group">
@@ -109,7 +109,7 @@ const Contact = () => {
                 </div>
               </form>
             </div>
-            <div className="contact-map">
+            <div className="contact-map" data-aos="fade-left" data-aos-duration="2000" data-aos-offset="600">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.869826566487!2d107.5856668524724!3d-7.024583783325032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68ebf1b5fea8af%3A0x7a5c34fc250de7a1!2sSDN%20Waas%20I!5e0!3m2!1sen!2sid!4v1707640466386!5m2!1sen!2sid"
                 width="600"

@@ -11,7 +11,7 @@ export default function LandingPage() {
   return (
     <>
       <Head>
-        <title>Aplikasi Rental Costume</title>
+        <title>Rencos Project</title>
         <meta name="description" content="Aplikasi Rental Costume" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>

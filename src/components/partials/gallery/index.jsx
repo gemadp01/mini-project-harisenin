@@ -8,26 +8,17 @@ const Gallery = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // const startTime = performance.now();
         for (let i = 0; i < 5; i++) {
           const response = await fetch('https://nekos.best/api/v2/neko');
           if (!response.ok) {
             throw new Error(`HTTP Error! status:: ${response.status}`);
           }
           const result = await response.json();
-          // const endTime = performance.now();
-          // const duration = endTime - startTime;
 
-          // const minLoadingTime = 500;
-          // const remainingTime = minLoadingTime - duration;
-          // const loadingTime = remainingTime > 0 ? remainingTime : 0;
-
-          // setTimeout(() => setLoading(false), loadingTime);
           setGallery((prevGallery) => [...prevGallery, result.results[0]]);
         }
       } catch (error) {
         console.error('An error occurred while fetching the data: ', error);
-        // setLoading(false);
       }
     };
 

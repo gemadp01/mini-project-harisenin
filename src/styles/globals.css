@@ -13,11 +13,11 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background-image: url('/public/img/pngwing.com.png');
 }
 
 #home {
   padding-top: 144px;
+  /* background-image: url('/img/4.png'); */
 }
 
 /* Styling container */
@@ -72,7 +72,7 @@ footer .container {
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
-  padding: 12px 32px;
+  padding: 12px 38px 12px 20px;
   background-color: #ef4444;
   text-decoration: none;
   border-radius: 50px;
@@ -93,7 +93,7 @@ footer .container {
 #services,
 #gallery,
 #contact {
-  padding-top: 144px;
+  padding-top: 114px;
   padding-bottom: 64px;
 }
 /* End */
